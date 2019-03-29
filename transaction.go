@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/ethereum/go-ethereum/common"
+)
 
 type Transaction struct {
 	data txdata
@@ -10,11 +13,10 @@ type Transaction struct {
 }
 
 type txdata struct {
-	SenderNonce		uint64
-	RecipientNonce	uint64
-	Sender			*common.Address
-	Recipient		*common.Address
-	Payload			[]byte
+	Participants		[]*common.Address
+	ParticipantsNonce	[]uint64
+	XORs				[]uint64
+	Payload				[]byte
 	
 	// Signature values
 
